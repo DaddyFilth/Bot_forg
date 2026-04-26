@@ -1,0 +1,24 @@
+version: 2
+updates:
+  # Check for npm dependencies updates daily
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "DaddyFilth"
+    assignees:
+      - "DaddyFilth"
+    commit-message:
+      prefix: "chore(deps):"
+      include: "scope"
+    # Create security update PRs with higher priority
+    labels:
+      - "dependencies"
+      - "automation"
+    # Allow auto-merge for patch updates
+    auto-merge:
+      enabled: true
+      type: "squash"
